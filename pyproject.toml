@@ -1,0 +1,17 @@
+[project]
+name = "ig-saves-mcp"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "av<19",
+    "faster-whisper>=1.2.1",
+    "instaloader",
+    "mcp>=2.3.0",
+    "pysocks>=1.7.1",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

@@ -1,0 +1,19 @@
+services:
+  ig-saves:
+    build: .
+    restart: unless-stopped
+    environment:
+      PROXY_URL: socks5h://nas-tunnel:1080
+      MCP_SECRET: ${MCP_SECRET:?MCP_SECRET manquant dans .env}
+    volumes:
+      - ./data:/data
+    networks:
+      - reverse-proxy
+      - tunnel-net
+
+networks:
+  reverse-proxy:
+    external: true
+  tunnel-net:
+    name: tunnel-net
+    external: true
